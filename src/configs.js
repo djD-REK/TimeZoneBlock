@@ -1,25 +1,30 @@
 import { ElementPropTypes } from "@volusion/element-proptypes"
 
 export const configSchema = {
-  dateRange: {
-    label: "Sale Dates (Start and End Dates)",
+  date: {
+    label: "Start and End Dates",
     type: ElementPropTypes.dateRange,
   },
   text: {
     label: "Text Content",
     type: ElementPropTypes.string,
   },
-  startTime: {
+  startTimeSlider: {
     label: "Start Time (on Start Date)",
     type: ElementPropTypes.slider,
   },
-  endTime: {
+  endTimeSlider: {
     label: "End Time (on End Date)",
     type: ElementPropTypes.slider,
   },
   timeZone: {
     label: "Time Zone (for Start and End Times)",
-    type: ElementPropTypes.slider,
+    type: ElementPropTypes.oneOf([
+      "America/New_York",
+      "America/Chicago",
+      "America/Salt_Lake_City",
+      "America/Los_Angeles",
+    ]),
   },
 }
 
@@ -31,34 +36,25 @@ nextWeek.setDate(nextWeek.getDate() + 7)
 export const defaultConfig = {
   dateRange: [today, nextWeek],
   text: "50% Off All Sale Items",
-  startTime: {
+  startTimeSlider: {
     labelPrefix: "",
-    labelStepSize: 1,
+    labelStepSize: 2,
     labelSuffix: ":00",
     min: 0,
     max: 23,
-    stepSize: 8,
-    selectedValue: 12,
-    vertical: false,
-  },
-  endTime: {
-    labelPrefix: "",
-    labelStepSize: 1,
-    labelSuffix: ":00",
-    min: 0,
-    max: 23,
-    stepSize: 8,
-    selectedValue: 12,
-    vertical: false,
-  },
-  timeZone: {
-    labelPrefix: "",
-    labelStepSize: 10,
-    labelSuffix: ":00UTC",
-    min: -12,
-    max: 12,
     stepSize: 1,
-    selectedValue: -5,
+    selectedValue: 8,
     vertical: false,
   },
+  endTimeSlider: {
+    labelPrefix: "",
+    labelStepSize: 1,
+    labelSuffix: ":00",
+    min: 0,
+    max: 23,
+    stepSize: 2,
+    selectedValue: 18,
+    vertical: false,
+  },
+  timeZone: "America/Chicago",
 }

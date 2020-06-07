@@ -10,7 +10,10 @@
   },
   "author": "Volusion, LLC",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "date-fns": "^2.14.0",
+    "date-fns-tz": "^1.0.10"
+  },
   "devDependencies": {
     "@volusion/element-block-scripts": "^2.2.3",
     "@volusion/element-block-utils": "^2.0.0",
